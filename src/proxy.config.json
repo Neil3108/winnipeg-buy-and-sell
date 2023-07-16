@@ -1,8 +1,0 @@
-{
-    "/api/*": {
-        "target": "https://buy-and-sell-backend-mongodb.onrender.com/",
-        "secure": false,
-        "logLevel": "debug",
-        "changeOrigin": true
-    }
-}
