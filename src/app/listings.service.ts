@@ -20,30 +20,30 @@ export class ListingsService {
   ) { }
 
   getListings(): Observable<Listing[]> {
-    return this.http.get<Listing[]>('/api/listings');
+    return this.http.get<Listing[]>('https://buy-and-sell-backend-mongodb.onrender.com/api/listings');
   }
 
   getListingById(id: string): Observable<Listing>{
-    return this.http.get<Listing>(`/api/listings/${id}`);
+    return this.http.get<Listing>(`https://buy-and-sell-backend-mongodb.onrender.com/api/listings/${id}`);
   }
 
   addViewToListing(id: string): Observable<Listing>{
-    return this.http.post<Listing>(`/api/listings/${id}/add-view`,
+    return this.http.post<Listing>(`https://buy-and-sell-backend-mongodb.onrender.com/api/listings/${id}/add-view`,
     {},
     httpOptions)
   }
 
   getListingForUser(): Observable<Listing[]>{
-    return this.http.get<Listing[]>(`/api/listings/user/12345`)
+    return this.http.get<Listing[]>(`https://buy-and-sell-backend-mongodb.onrender.com/api/listings/user/12345`)
   }
 
   deleteListing(id: string): Observable<any> {
-    return this.http.delete<any>(`/api/edit-listing/${id}`)
+    return this.http.delete<any>(`https://buy-and-sell-backend-mongodb.onrender.com/api/edit-listing/${id}`)
   }
 
   createListing(name: string, description: string, price: number): Observable<Listing>{
     return this.http.post<Listing>(
-      '/api/new-listing',
+      'https://buy-and-sell-backend-mongodb.onrender.com/api/new-listing',
       {name, description, price},
       httpOptions,
     );
@@ -51,7 +51,7 @@ export class ListingsService {
 
   editListing(id: string, name: string, description: string, price: number): Observable<Listing>{
     return this.http.patch<Listing>(
-      `/api/edit-listing/${id}`,
+      `https://buy-and-sell-backend-mongodb.onrender.com/api/edit-listing/${id}`,
       {name, description, price},
       httpOptions,
     );
